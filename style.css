@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lexend', sans-serif;
+}
+
+/* Title styling */
+/* font, size, color, position, animations? */
+.title {
+    font-size: 3rem;
+    color: #90d4f4;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Will rework on this for maybe bg image, size/resizing */
+.main-container {
+    border: 2px solid green;
+    min-height: 50rem;
+}
+
+/* Form styling (text, input box, button */
+/* Style pseudo classes after logic implemented */
+.form-container {
+    padding: 2em;
+    text-align: center;
+}
+
+.task-text, #task, #submit {
+    font-size: 1.5rem;
+}
+
+#task, #submit {
+    padding: .3rem;
+    border-radius: .5rem;
+}
+
+#task:focus {
+    outline-color: #90d4f4;
+    caret-color: #d3d3ff;
+}
+
+#submit {
+    background-color: #d3d3ff;
+    color: grey;
+    border-color: silver;
+}

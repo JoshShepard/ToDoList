@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily To-Do List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <h1 class="title">Daily To-Do List</h1>
+
+    <main class="main-container">
+        <section class="form-container">
+            <form action="/script.js" method="POST">
+                <label class="task-text" for="task">Add a new task:</label>
+                <input type="text" id="task" name="task" required/>
+                <input type="submit" id="submit" value="Add Task"/>
+            </form> 
+        </section> 
+        
+        <section class="todo-list-container">
+            <ul class="todo-list">
+
+            </ul>
+        </section>
+    </main>
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
