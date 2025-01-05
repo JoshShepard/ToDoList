@@ -5,30 +5,35 @@
     font-family: 'Lexend', sans-serif;
 }
 
+html {
+    height: 100%;
+    background: linear-gradient(#7f7fd5, #91eae4);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 /* Title styling */
-/* font, size, color, position, animations? */
 .title {
     font-size: 3rem;
-    color: #90d4f4;
     padding: 1rem;
     text-align: center;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px black;
 }
 
-/* Will rework on this for maybe bg image, size/resizing */
-.main-container {
-    border: 2px solid green;
-    min-height: 50rem;
-}
-
-/* Form styling (text, input box, button */
-/* Style pseudo classes after logic implemented */
+/* Form styling */
 .form-container {
     padding: 2em;
     text-align: center;
 }
 
+.task-text, .title, #submit{
+    color: #F5F5F5;
+}
+
 .task-text, #task, #submit {
     font-size: 1.5rem;
+    font-weight: bold;
 }
 
 #task, #submit {
@@ -36,13 +41,23 @@
     border-radius: .5rem;
 }
 
-#task:focus {
-    outline-color: #90d4f4;
-    caret-color: #d3d3ff;
+#submit {
+    background-color: #91eae4;
+    padding: .5rem;
 }
 
-#submit {
-    background-color: #d3d3ff;
-    color: grey;
-    border-color: silver;
+
+/* Lists Styling */
+.todo-list-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+li {
+    border-bottom: 1px solid black;
+    padding: 1rem;
+    text-align: center;
+    list-style: none;
+    font-weight: bold;
+    font-size: 1.25rem;
 }
