@@ -7,9 +7,9 @@
 
 html {
     min-height: 100%;
-    background: linear-gradient(#7f7fd5, #91eae4);
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: #292F36;
+    /* background-size: cover;
+    background-repeat: no-repeat; */
 }
 
 /* Title styling */
@@ -41,13 +41,29 @@ html {
     font-weight: bold;
 }
 
-#task, #submit {
+#task {
+    margin-inline: .5rem;
     padding: .5rem;
     border-radius: .5rem;
 }
 
+#task:focus {
+    border: none;
+    outline: none;
+}
+
 #submit {
-    background-color: #91eae4;
+    background-color: #008000;
+    border: none;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+}
+
+#submit:hover {
+    background-color: #38B000;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+    box-shadow: 1px 5px 10px black;
 }
 
 /* Lists Styling */
@@ -66,9 +82,41 @@ li {
     font-size: 1.25rem;
     margin-bottom: 1rem;
     border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 li:hover {
+    transition: box-shadow 0.3s ease;
     box-shadow: 1px 5px 10px black;
     margin-bottom: 1.5rem;
+}
+
+#completed-button, #edit-button {
+    border: none;
+    padding: .7rem 1.5rem;
+    border-radius: 1rem;
+    color: #f5f5f5;
+}
+
+#completed-button {
+    background-color: #db3a34;
+    margin-left: .5rem;
+}
+
+#edit-button {
+    background-color: #00afb9;
+}
+
+#completed-button:hover, #edit-button:hover {
+    cursor: pointer;
+}
+
+#completed-button:hover {
+    background-color: #e06f66;
+}
+
+#edit-button:hover {
+    background-color: #33c6d2;
 }
