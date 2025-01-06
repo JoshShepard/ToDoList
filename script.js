@@ -53,14 +53,16 @@ button.addEventListener('click', function() {
 
 
         // TODO FIX
-        // when edit is clicked, it shows buttons within inputfield 
+        // Overflowing buttons and texts when task text grows
         // style the input field and save button
-        // after edit, buttons vanish on the task/list item
         editButton.addEventListener('click', function() {
-            const originalText = newTask.textContent.replace("Edit", "").trim();
+            const originalText = task;
             const editField = document.createElement('input');
             editField.type = 'text';
             editField.value = originalText;
+
+            console.log(originalText);
+            console.log(editField.value);
 
             newTask.innerHTML = "";
             newTask.appendChild(editField);
@@ -72,6 +74,8 @@ button.addEventListener('click', function() {
 
             saveButton.addEventListener('click', function() {
                 newTask.textContent = editField.value;
+                buttonSection.removeChild(saveButton);
+                newTask.appendChild(buttonSection);
             })
         });
     } else {
