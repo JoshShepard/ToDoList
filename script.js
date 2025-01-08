@@ -9,7 +9,7 @@ button.addEventListener('click', function() {
     // removing whitespace off user input
     const task = inputField.value.trim();
 
-    // HTML has required but check anyway
+    // HTML has required but check for empty string anyway
     if (task !== '') {
         // creates new task/list item + assigns user input
         const newTask = document.createElement('li');
@@ -36,10 +36,12 @@ button.addEventListener('click', function() {
         // adds task to to-do list
         todoList.appendChild(newTask);
 
-        // resets input field for next task
+        // resets input field for next task entry
         inputField.value = '';
 
+        // styling for a completed task when complete button is clicked
         completeButton.addEventListener('click', function() {
+            // if - removes styling of completed task. else - add styling for completed task
             if (newTask.style.textDecoration === 'line-through') {
                 newTask.style.textDecoration = 'none';
                 newTask.style.backgroundColor = '#3f3f3f';
@@ -56,27 +58,28 @@ button.addEventListener('click', function() {
         // Overflowing buttons and texts when task text grows
         // style the input field and save button
         editButton.addEventListener('click', function() {
-            const originalText = task;
+            // retrieving last input text from user
+            const originalText = newTask.firstChild.textContent.trim();
             const editField = document.createElement('input');
             editField.type = 'text';
             editField.value = originalText;
-
-            console.log(originalText);
-            console.log(editField.value);
 
             newTask.innerHTML = "";
             newTask.appendChild(editField);
 
             const saveButton = document.createElement('button');
             saveButton.textContent = 'SAVE';
+            saveButton.id = 'save-button';
             buttonSection.appendChild(saveButton);
             newTask.appendChild(buttonSection);
 
             saveButton.addEventListener('click', function() {
-                newTask.textContent = editField.value;
+                const updatedTask = editField.value.trim();
+
+                newTask.textContent = updatedTask;
                 buttonSection.removeChild(saveButton);
                 newTask.appendChild(buttonSection);
-            })
+            });
         });
     } else {
         alert('Enter a valid task!');
