@@ -93,7 +93,7 @@ li:hover {
     margin-bottom: 1.5rem;
 }
 
-#completed-button, #edit-button, #save-button {
+#completed-button, #edit-button, #save-button, #delete-button {
     border: none;
     padding: .7rem 1.5rem;
     border-radius: 1rem;
@@ -102,28 +102,35 @@ li:hover {
 }
 
 #completed-button {
-    background-color: #db3a34;
-    /* margin-left: .5rem; */
+    background-color: #ff8500;
 }
 
 #edit-button {
     background-color: #00afb9;
 }
 
+#save-button {
+    background-color: #9b5de5;
+}
+
+#delete-button {
+    background-color: #db3a34;
+}
+
 #completed-button:hover, #edit-button:hover, #save-button:hover {
     cursor: pointer;
 }
 
-#completed-button:hover {
+#delete-button:hover {
     background-color: #e06f66;
+}
+
+#completed-button:hover {
+    background-color: #ff9f33;
 }
 
 #edit-button:hover {
     background-color: #33c6d2;
-}
-
-#save-button {
-    background-color: #9b5de5;
 }
 
 #edit-input {

@@ -2,9 +2,93 @@
 // button, user input, and todo list container
 let button = document.getElementById('submit');
 let inputField = document.getElementById('task');
+let form = document.getElementById('form');
 let todoList = document.getElementById('todo-list');
 
-// Event listener on add button
+// Event listener for pressing enter after inputting task
+form.addEventListener('submit', function(event) {
+        // Prevent form to submit form
+        event.preventDefault();
+
+        const task = inputField.value.trim();
+
+        if (task !== '') {
+            const newTask = document.createElement('li');
+            newTask.textContent = task;
+
+            const editButton = document.createElement('button');
+            editButton.textContent = 'EDIT';
+            editButton.id = 'edit-button';
+
+            const completeButton = document.createElement('button');
+            completeButton.textContent = 'COMPLETE';
+            completeButton.id = 'completed-button';
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'DELETE';
+            deleteButton.id = 'delete-button';
+
+            const buttonSection = document.createElement('div');
+            buttonSection.appendChild(editButton);
+            buttonSection.appendChild(completeButton);
+            buttonSection.appendChild(deleteButton);
+
+            newTask.appendChild(buttonSection);
+            todoList.appendChild(newTask);
+
+            inputField.value = '';
+
+            completeButton.addEventListener('click', function() {
+                if (newTask.style.textDecoration === 'line-through') {
+                    newTask.style.textDecoration = 'none';
+                    newTask.style.backgroundColor = '#3f3f3f';
+                    completeButton.textContent = 'COMPLETE';
+                } else {
+                    newTask.style.textDecoration = 'line-through';
+                    newTask.style.backgroundColor = '#D00000';
+                    completeButton.textContent = 'UNDO';
+                }
+            });
+
+            function editTask() {
+                editButton.disabled = true;
+                const originalText = newTask.firstChild.textContent.trim();
+                const editField = document.createElement('input');
+                editField.id = 'edit-input';
+                editField.type = 'text';
+                editField.value = originalText;
+
+                newTask.innerHTML = "";
+                newTask.appendChild(editField);
+
+                const saveButton = document.createElement('button');
+                saveButton.textContent = 'SAVE';
+                saveButton.id = 'save-button';
+                buttonSection.appendChild(saveButton);
+                newTask.appendChild(buttonSection);
+
+                saveButton.addEventListener('click', function() {
+                    const updatedTask = editField.value.trim();
+
+                    newTask.textContent = updatedTask;
+                    buttonSection.removeChild(saveButton);
+                    newTask.appendChild(buttonSection);
+
+                    editButton.disabled = false;
+                });
+            }
+
+            editButton.addEventListener('click', editTask);
+
+            deleteButton.addEventListener('click', function() {
+                newTask.style.display = 'none';
+            });
+        } else {
+            alert('Enter a valid task!');
+        }
+});
+
+// Event listener on add task button
 button.addEventListener('click', function() {
     // removing whitespace off user input
     const task = inputField.value.trim();
@@ -25,10 +109,15 @@ button.addEventListener('click', function() {
         completeButton.textContent = 'COMPLETE';
         completeButton.id = 'completed-button';
 
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'DELETE';
+        deleteButton.id = 'delete-button';
+
         // create a div to space buttons from task
         const buttonSection = document.createElement('div');
         buttonSection.appendChild(editButton);
         buttonSection.appendChild(completeButton);
+        buttonSection.appendChild(deleteButton);
 
         // add button div to each task/list item
         newTask.appendChild(buttonSection);
@@ -87,6 +176,13 @@ button.addEventListener('click', function() {
         }
 
         editButton.addEventListener('click', editTask);
+
+
+        deleteButton.addEventListener('click', function() {
+            newTask.style.display = 'none';
+        })
+
+
     } else {
         alert('Enter a valid task!');
     }  
