@@ -54,13 +54,14 @@ button.addEventListener('click', function() {
         });
 
 
-        // TODO FIX
-        // Overflowing buttons and texts when task text grows
-        // style the input field and save button
-        editButton.addEventListener('click', function() {
+
+        // Edit button function
+        function editTask() {
+            editButton.disabled = true;
             // retrieving last input text from user
             const originalText = newTask.firstChild.textContent.trim();
             const editField = document.createElement('input');
+            editField.id = 'edit-input';
             editField.type = 'text';
             editField.value = originalText;
 
@@ -79,8 +80,13 @@ button.addEventListener('click', function() {
                 newTask.textContent = updatedTask;
                 buttonSection.removeChild(saveButton);
                 newTask.appendChild(buttonSection);
+
+                // turn edit button back 'on' after editing is done -> save button is clicked 
+                editButton.disabled = false;
             });
-        });
+        }
+
+        editButton.addEventListener('click', editTask);
     } else {
         alert('Enter a valid task!');
     }  
