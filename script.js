@@ -36,7 +36,7 @@ form.addEventListener('submit', function(event) {
 
             const buttonSection = document.createElement('div');
             buttonSection.appendChild(editButton);
-            buttonSection.appendChild(completeButton);
+            // buttonSection.appendChild(completeButton);
             buttonSection.appendChild(deleteButton);
             buttonSection.appendChild(startButton);
 
@@ -52,12 +52,14 @@ form.addEventListener('submit', function(event) {
                     completeButton.textContent = 'COMPLETE';
                     completedList.removeChild(newTask);
                     todoList.appendChild(newTask);
-                } else {
+                } 
+                else {
                     newTask.style.textDecoration = 'line-through';
                     newTask.style.backgroundColor = '#D00000';
-                    completeButton.textContent = 'UNDO';
                     completedList.appendChild(newTask);
-                    start.removeChild(newTask);
+                    buttonSection.innerHTML = '';
+                    buttonSection.appendChild(deleteButton);
+                    newTask.appendChild(buttonSection);
                 }
             });
 
@@ -91,9 +93,19 @@ form.addEventListener('submit', function(event) {
 
             startButton.addEventListener('click', function() {
                 if (!newTask.style.textDecoration) {
+                    buttonSection.removeChild(startButton);
+                    buttonSection.removeChild(editButton);
+                    buttonSection.appendChild(completeButton);
+                    newTask.appendChild(buttonSection);
                     todoList.removeChild(newTask);
                     start.appendChild(newTask);
                     newTask.style.backgroundColor = 'yellow';
+                } else {
+                    buttonSection.removeChild(startButton);
+                    buttonSection.removeChild(editButton);
+                    buttonSection.removeChild(completeButton);
+                    buttonSection.appendChild(deleteButton);
+                    newTask.appendChild(buttonSection);
                 }
             })
 
@@ -133,16 +145,14 @@ button.addEventListener('click', function() {
         deleteButton.id = 'delete-button';
 
         const startButton = document.createElement('button');
-            startButton.textContent = 'START';
-            startButton.id = 'start-button';
+        startButton.textContent = 'START';
+        startButton.id = 'start-button';
 
         // create a div to space buttons from task
         const buttonSection = document.createElement('div');
         buttonSection.appendChild(editButton);
-        buttonSection.appendChild(completeButton);
         buttonSection.appendChild(deleteButton);
         buttonSection.appendChild(startButton);
-
 
         // add button div to each task/list item
         newTask.appendChild(buttonSection);
@@ -155,19 +165,20 @@ button.addEventListener('click', function() {
 
         // styling for a completed task when complete button is clicked
         completeButton.addEventListener('click', function() {
-            // if - removes styling of completed task. else - add styling for completed task
             if (newTask.style.textDecoration === 'line-through') {
                 newTask.style.textDecoration = 'none';
                 newTask.style.backgroundColor = '#3f3f3f';
                 completeButton.textContent = 'COMPLETE';
                 completedList.removeChild(newTask);
                 todoList.appendChild(newTask);
-            } else {
+            } 
+            else {
                 newTask.style.textDecoration = 'line-through';
                 newTask.style.backgroundColor = '#D00000';
-                completeButton.textContent = 'UNDO';
                 completedList.appendChild(newTask);
-                start.removeChild(newTask);
+                buttonSection.innerHTML = '';
+                buttonSection.appendChild(deleteButton);
+                newTask.appendChild(buttonSection);
             }
         });
 
@@ -206,9 +217,19 @@ button.addEventListener('click', function() {
 
         startButton.addEventListener('click', function() {
             if (!newTask.style.textDecoration) {
+                buttonSection.removeChild(startButton);
+                buttonSection.removeChild(editButton);
+                buttonSection.appendChild(completeButton);
+                newTask.appendChild(buttonSection);
                 todoList.removeChild(newTask);
                 start.appendChild(newTask);
                 newTask.style.backgroundColor = 'yellow';
+            } else {
+                buttonSection.removeChild(startButton);
+                buttonSection.removeChild(editButton);
+                buttonSection.removeChild(completeButton);
+                buttonSection.appendChild(deleteButton);
+                newTask.appendChild(buttonSection);
             }
         })
 

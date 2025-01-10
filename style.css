@@ -95,7 +95,7 @@ li:hover {
     margin-bottom: 1.5rem;
 }
 
-#completed-button, #edit-button, #save-button, #delete-button {
+#completed-button, #edit-button, #save-button, #delete-button, #start-button {
     border: none;
     padding: .7rem 1.5rem;
     border-radius: 1rem;
@@ -119,7 +119,11 @@ li:hover {
     background-color: #db3a34;
 }
 
-#completed-button:hover, #edit-button:hover, #save-button:hover {
+#start-button {
+    background-color: #218661;
+}
+
+#completed-button:hover, #edit-button:hover, #save-button:hover, #start-button:hover {
     cursor: pointer;
 }
 
@@ -133,6 +137,10 @@ li:hover {
 
 #edit-button:hover {
     background-color: #33c6d2;
+}
+
+#start-button:hover {
+    background-color: #3a9f7a;
 }
 
 #edit-input {
