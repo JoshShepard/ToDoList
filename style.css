@@ -32,7 +32,7 @@ html {
     text-align: center;
 }
 
-.task-text, .title, #submit{
+.task-text, .title, #submit, h3{
     color: #F5F5F5;
 }
 
@@ -57,6 +57,7 @@ html {
     border: none;
     padding: .5rem 1rem;
     border-radius: .5rem;
+    margin-top: .5rem;
 }
 
 #submit:hover {
@@ -67,15 +68,20 @@ html {
 }
 
 /* Lists Styling */
+h3 {
+    margin-bottom: .5rem;
+}
+
 .todo-list-container {
-    width: 100%;
-    margin-inline: auto;
-    display: flex;
-    justify-content: space-around;
+    margin-inline: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
 }
 
 li {
-    word-wrap: break-word;
+    overflow-wrap: break-word;
+    /* word-break: break-word; */
     background-color: #3f3f3f;
     color: #F5F5F5;
     padding: 1rem;
@@ -100,7 +106,7 @@ li:hover {
     padding: .7rem 1.5rem;
     border-radius: 1rem;
     color: #f5f5f5;
-    margin-right: .5rem;
+    margin: .5rem;
 }
 
 #completed-button {
@@ -153,4 +159,69 @@ li:hover {
 #edit-input:focus {
     border: none;
     outline: none;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 768px) {
+    .task-text {
+        display: none; /* Hides the 'Add a new task' label */
+    }
+
+    .form-container {
+        padding: 1em; /* Adjust padding for smaller screens */
+    }
+
+    /* Stacks the lists vertically (1 column layout) */
+    .todo-list-container {
+        grid-template-columns: 1fr; /* 1 column for mobile */
+    }
+
+    /* Adjust font sizes for smaller screens */
+    .title {
+        font-size: 2.5rem; /* Slightly smaller title */
+    }
+
+    .task-text, #task, #submit {
+        font-size: 1.25rem; /* Adjust input/button font sizes */
+    }
+
+    li {
+        font-size: 1.1rem; /* Adjust font size of list items */
+    }
+
+    #task {
+        font-size: 1.2rem; /* Adjust input field size */
+    }
+
+    #submit {
+        padding: 0.5rem 1rem; /* Adjust button size for smaller screens */
+    }
+}
+
+/* Even smaller devices, like phones in portrait mode */
+@media (max-width: 480px) {
+    .title {
+        font-size: 2rem; /* Further reduce font size for very small screens */
+    }
+
+    .task-text, #task, #submit {
+        font-size: 1rem; /* Smaller font size for inputs/buttons */
+    }
+
+    li {
+        font-size: 1rem; /* Smaller font size for list items */
+    }
+
+    #task {
+        padding: 0.5rem; /* Adjust padding for smaller input */
+    }
+
+    #submit {
+        padding: 0.5rem 1rem; /* Adjust button size */
+    }
+
+    .form-container {
+        padding: 0.5em; /* Less padding for mobile */
+    }
 }

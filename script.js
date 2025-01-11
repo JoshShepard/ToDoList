@@ -1,5 +1,4 @@
-// Get DOM elements for adding tasks
-// button, user input, and todo list container
+// Get DOM elements - (button, input, lists)
 let button = document.getElementById('submit');
 let inputField = document.getElementById('task');
 let form = document.getElementById('form');
@@ -35,8 +34,8 @@ form.addEventListener('submit', function(event) {
             startButton.id = 'start-button';
 
             const buttonSection = document.createElement('div');
+            buttonSection.id = 'button-section';
             buttonSection.appendChild(editButton);
-            // buttonSection.appendChild(completeButton);
             buttonSection.appendChild(deleteButton);
             buttonSection.appendChild(startButton);
 
@@ -99,7 +98,7 @@ form.addEventListener('submit', function(event) {
                     newTask.appendChild(buttonSection);
                     todoList.removeChild(newTask);
                     start.appendChild(newTask);
-                    newTask.style.backgroundColor = 'yellow';
+                    newTask.style.backgroundColor = '#FFCA28';
                 } else {
                     buttonSection.removeChild(startButton);
                     buttonSection.removeChild(editButton);
@@ -223,7 +222,7 @@ button.addEventListener('click', function() {
                 newTask.appendChild(buttonSection);
                 todoList.removeChild(newTask);
                 start.appendChild(newTask);
-                newTask.style.backgroundColor = 'yellow';
+                newTask.style.backgroundColor = '#FFCA28';
             } else {
                 buttonSection.removeChild(startButton);
                 buttonSection.removeChild(editButton);
@@ -239,8 +238,6 @@ button.addEventListener('click', function() {
         deleteButton.addEventListener('click', function() {
             newTask.style.display = 'none';
         })
-
-
     } else {
         alert('Enter a valid task!');
     }  
