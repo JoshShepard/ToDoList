@@ -13,13 +13,14 @@ seeing how many tasks they still have to do, currently working on, and completed
   + User interactivity
 
 ##Skills Practiced
-  + **HTML**             + **Responsive Website**
-  + **CSS**              + **Git**
+  + **HTML**            
+  + **CSS**             
   + **JavaScript**
   + **DOM Manipulation**
+  + **Responsive Website**
   + **Git**
   + **GitHub**
   + **Frontend Project Building**
 
 
-Practice HTML, CSS, and JavaScript. Concepts to practice - DOM Manipulation, Responsive Websites, Project Building, Git/GitHub
+
